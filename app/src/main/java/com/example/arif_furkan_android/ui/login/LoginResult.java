@@ -1,4 +1,4 @@
-package  com.example.arif_furkan_android.ui.login;
+package com.example.arif_furkan_android.ui.login;
 
 import androidx.annotation.Nullable;
 
