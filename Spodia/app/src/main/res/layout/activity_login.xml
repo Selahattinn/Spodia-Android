@@ -8,7 +8,7 @@
     android:background="@drawable/arkaplan">
 
     <Button
-        android:id="@+id/signIn"
+        android:id="@+id/signUp"
         android:layout_width="76dp"
         android:layout_height="17dp"
         android:background="@drawable/path_52"
