@@ -10,12 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainPage"></activity>
-        <activity android:name=".SignIn" />
-        <activity android:name=".GmailLogin" />
-        <activity android:name=".TwitterLogin" />
-        <activity android:name=".ForgetPassword" />
-        <activity android:name=".FacebookLogin" />
-        <activity android:name=".Login" />
+        <activity android:name=".SignIn" ></activity>
+        <activity android:name=".GmailLogin" ></activity>
+        <activity android:name=".TwitterLogin" ></activity>
+        <activity android:name=".ForgetPassword" ></activity>
+        <activity android:name=".FacebookLogin" ></activity>
+        <activity android:name=".Login" ></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
