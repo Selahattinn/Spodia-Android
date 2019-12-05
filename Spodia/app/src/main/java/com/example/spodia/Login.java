@@ -6,11 +6,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.app.Activity;
 import android.os.AsyncTask;
 import android.widget.Toast;
+
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -24,8 +26,8 @@ import java.util.Map;
 
 
 public class Login extends Activity {
-    private TextView tvName;
-    private TextView tvPassword;
+    private EditText tvName;
+    private EditText tvPassword;
     private Button buttonLogin;
     private CheckBox checkBox;
     private TextView tvForgetPassword;
@@ -69,18 +71,18 @@ public class Login extends Activity {
                         Intent mainPage = new Intent(Login.this, MainPage.class);
                         startActivity(mainPage);
                     }
-                    else
-                        {
+                    else {
                         toast.makeText(getApplicationContext(),"Invalid login,try again.",Toast.LENGTH_SHORT);
                         toast.show();
                     }
                 }
 
-                else
-                    {
+                else {
                     toast.makeText(getApplicationContext(),"Control the internet connection!",Toast.LENGTH_SHORT);
                     toast.show();
                 }
+
+
         }});
 
         tvForgetPassword.setOnClickListener(new View.OnClickListener()
@@ -141,17 +143,18 @@ public class Login extends Activity {
         {
 
 
-            String url="https://10.8.58.3:8080";
-            StringRequest request=new StringRequest(Request.Method.POST,url,new Response.Listener<String>(){
+            String url="https://172.16.6.120:8080";
+
+            final StringRequest request=new StringRequest(Request.Method.POST,url,new Response.Listener<String>(){
 
                 @Override
                 public void onResponse(String response){
 
                     if (!response.equals(null)) {
-                        responseString = response.toString();
+                        responseString = response.intern();
                     }
                     else {
-                        responseString = response.toString();
+                        responseString = response.intern();
 
                     }
                 }
