@@ -16,8 +16,11 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -125,32 +128,36 @@ public class Login extends Activity
         {
 
 
-            String url = "https://10.8.58.3:8080";
-            StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
-
+            final String url = "https://10.1.243.110:8080";
+            JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url,null,new Response.Listener<JSONObject>() {
                 @Override
-                public void onResponse(String response)
-                {
-                    if (response != null)
-                    {
-                        if (response.intern().equals("Connected"))
+                public void onResponse(JSONObject response) {
+                     try {
+                        if (response.keys().hasNext())
                         {
-                            Toast toast = Toast.makeText(getApplicationContext(), "Succesfull", Toast.LENGTH_SHORT);
-                            toast.show();
-                            Intent mainPage = new Intent(Login.this, MainPage.class);
-                            startActivity(mainPage);
+                            if (response.getString("name").equals(et_username.getText().toString()))
+                            {
+                                Toast toast = Toast.makeText(getApplicationContext(), "Succesfull", Toast.LENGTH_SHORT);
+                                toast.show();
+                                Intent mainPage = new Intent(Login.this, MainPage.class);
+                                startActivity(mainPage);
+                            }
+                            else
+                            {
+                                Toast toast = Toast.makeText(getApplicationContext(), "Invalid login.", Toast.LENGTH_SHORT);
+                                toast.show();
+                            }
                         }
                         else
                         {
-                            Toast toast = Toast.makeText(getApplicationContext(), "Invalid login.", Toast.LENGTH_SHORT);
+                            Toast toast = Toast.makeText(getApplicationContext(), "Connection poroblem.", Toast.LENGTH_SHORT);
                             toast.show();
                         }
+                    } catch ( JSONException e) {
+                        e.printStackTrace();
                     }
-                    else
-                    {
-                        Toast toast = Toast.makeText(getApplicationContext(), "Connection poroblem.", Toast.LENGTH_SHORT);
-                        toast.show();
-                    }
+
+
                 }
             }, new Response.ErrorListener()
             {
@@ -163,11 +170,14 @@ public class Login extends Activity
             })
             {
                 @Override
-                public Map<String, String> getHeaders() throws AuthFailureError
+                public Map<String,String> getHeaders() throws AuthFailureError
                 {
+
                     Map<String, String> params = new HashMap<String, String>();
+                    params.put("Content-Type", "application/");
                     params.put("User", et_username.getText().toString());
                     params.put("Pass", et_password.getText().toString());
+
                     return params;
                 }
 

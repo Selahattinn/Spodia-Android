@@ -109,7 +109,7 @@
         android:drawableLeft="@drawable/group_9"
         android:ems="10"
         android:fontFamily="@font/ubuntu_light"
-        android:hint="  Kullanıcı adıı veya e-mail"
+        android:hint="  Kullanıcı adı veya e-mail"
         android:inputType="textPersonName"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textColor="@android:color/background_light"
