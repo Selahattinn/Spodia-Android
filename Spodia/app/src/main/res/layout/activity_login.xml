@@ -147,8 +147,11 @@
         android:id="@+id/Login"
         android:layout_width="320dp"
         android:layout_height="53dp"
-        android:background="@drawable/girisyap"
-
+        android:background="@drawable/path_60"
+        android:text="Giriş yap"
+        android:textColor="@color/mavi"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

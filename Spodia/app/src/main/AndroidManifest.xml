@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.spodia">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,13 +12,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainPage"></activity>
-        <activity android:name=".SignIn" ></activity>
-        <activity android:name=".GmailLogin" ></activity>
-        <activity android:name=".TwitterLogin" ></activity>
-        <activity android:name=".ForgetPassword" ></activity>
-        <activity android:name=".FacebookLogin" ></activity>
-        <activity android:name=".Login" ></activity>
+        <activity android:name=".ResetPassword"></activity>
+        <activity android:name=".MainPage" />
+        <activity android:name=".SignUp" />
+        <activity android:name=".GmailLogin" />
+        <activity android:name=".TwitterLogin" />
+        <activity android:name=".ForgetPassword" />
+        <activity android:name=".FacebookLogin" />
+        <activity android:name=".Login" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

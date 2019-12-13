@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignIn"
+    tools:context=".SignUp"
     android:background="@drawable/arkaplan">
 
     <EditText
@@ -66,7 +66,6 @@
         android:layout_width="300dp"
         android:layout_height="39dp"
         android:backgroundTint="@color/beyaz"
-        android:drawableLeft="@mipmap/path_47"
         android:ems="10"
         android:fontFamily="@font/ubuntu_light"
         android:hint="  *E-Mail"
@@ -149,8 +148,8 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="266dp"
-        android:layout_height="43dp"
+        android:layout_width="320dp"
+        android:layout_height="53dp"
         android:background="@drawable/sonrakitusu"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
