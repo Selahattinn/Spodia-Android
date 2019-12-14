@@ -128,7 +128,7 @@ public class Login extends Activity
         {
 
 
-            final String url = "https://10.1.243.110:8080";
+            final String url = "https://10.8.46.223:8080";
             JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url,null,new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {

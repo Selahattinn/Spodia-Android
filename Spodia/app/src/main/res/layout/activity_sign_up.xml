@@ -8,11 +8,10 @@
     android:background="@drawable/arkaplan">
 
     <EditText
-        android:id="@+id/name"
+        android:id="@+id/nameSignUp"
         android:layout_width="300dp"
         android:layout_height="39dp"
         android:backgroundTint="@color/beyaz"
-        android:drawableLeft="@drawable/group_9"
         android:ems="10"
         android:fontFamily="@font/ubuntu_light"
         android:hint="  Adınız"
@@ -26,7 +25,7 @@
         app:layout_constraintVertical_bias="0.20" />
 
     <EditText
-        android:id="@+id/surname"
+        android:id="@+id/surnameSignUp"
         android:layout_width="300dp"
         android:layout_height="39dp"
 
@@ -45,7 +44,7 @@
         app:layout_constraintVertical_bias="0.28" />
 
     <EditText
-        android:id="@+id/username"
+        android:id="@+id/usernameSignUp"
         android:layout_width="300dp"
         android:layout_height="39dp"
         android:backgroundTint="@color/beyaz"
@@ -62,13 +61,13 @@
         app:layout_constraintVertical_bias="0.36" />
 
     <EditText
-        android:id="@+id/e-mail"
+        android:id="@+id/emailSignUp"
         android:layout_width="300dp"
         android:layout_height="39dp"
         android:backgroundTint="@color/beyaz"
         android:ems="10"
         android:fontFamily="@font/ubuntu_light"
-        android:hint="  *E-Mail"
+        android:hint="  E-Mail"
         android:inputType="textEmailAddress"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -79,11 +78,10 @@
         app:layout_constraintVertical_bias="0.44" />
 
     <EditText
-        android:id="@+id/password"
+        android:id="@+id/passwordSignUp"
         android:layout_width="300dp"
         android:layout_height="39dp"
         android:backgroundTint="@color/beyaz"
-        android:drawableLeft="@mipmap/path_47"
         android:ems="10"
         android:fontFamily="@font/ubuntu_light"
         android:hint="  *Şifre"
@@ -97,11 +95,10 @@
         app:layout_constraintVertical_bias="0.52" />
 
     <EditText
-        android:id="@+id/repeatPassword"
+        android:id="@+id/repeatPasswordSignUp"
         android:layout_width="300dp"
         android:layout_height="39dp"
         android:backgroundTint="@color/beyaz"
-        android:drawableLeft="@mipmap/path_47"
         android:ems="10"
         android:fontFamily="@font/ubuntu_light"
         android:hint="  *Şifre Doğrula"
@@ -115,7 +112,7 @@
         app:layout_constraintVertical_bias="0.60" />
 
     <CheckBox
-        android:id="@+id/information"
+        android:id="@+id/informationSignUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:buttonTint="@color/beyaz"
@@ -131,7 +128,7 @@
         app:layout_constraintVertical_bias="0.7" />
 
     <CheckBox
-        android:id="@+id/userAgreementBox"
+        android:id="@+id/userAgreementBoxSignUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:buttonTint="@color/beyaz"
@@ -147,7 +144,7 @@
         app:layout_constraintVertical_bias="0.77" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/registerSignUp"
         android:layout_width="320dp"
         android:layout_height="53dp"
         android:background="@drawable/sonrakitusu"
@@ -159,7 +156,7 @@
         app:layout_constraintVertical_bias="0.9" />
 
     <ImageView
-        android:id="@+id/logo"
+        android:id="@+id/logoSignUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -171,7 +168,7 @@
         app:srcCompat="@mipmap/logo" />
 
     <ImageView
-        android:id="@+id/userAgreement"
+        android:id="@+id/userAgreementSignUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/image_16"
