@@ -64,8 +64,8 @@ public class Login extends Activity
             @Override
             public void onClick(View view)
             {
-                LoginTask loginTask = new LoginTask();
-                loginTask.execute("");
+
+                request();
             }
         });
 
@@ -121,16 +121,19 @@ public class Login extends Activity
     }
 
 
-    private class LoginTask extends AsyncTask<String, Void, String>
+    private void request()
     {
+        Map<String, String> params = new HashMap<String, String>();
+        params.put("Content-Type", "application/");
+        params.put("name", et_username.getText().toString());
+        params.put("parola", et_password.getText().toString());
+        JSONObject obj = new JSONObject(params);
 
-        protected String doInBackground(String... voids)
-        {
+         final String url = "https://192.168.3.52:8080";
+         JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url,obj,new Response.Listener<JSONObject>() {
 
+             @Override
 
-            final String url = "https://10.8.46.223:8080";
-            JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url,null,new Response.Listener<JSONObject>() {
-                @Override
                 public void onResponse(JSONObject response) {
                      try {
                         if (response.keys().hasNext())
@@ -175,8 +178,6 @@ public class Login extends Activity
 
                     Map<String, String> params = new HashMap<String, String>();
                     params.put("Content-Type", "application/");
-                    params.put("User", et_username.getText().toString());
-                    params.put("Pass", et_password.getText().toString());
 
                     return params;
                 }
@@ -185,16 +186,15 @@ public class Login extends Activity
                 protected Map<String, String> getParams()
                 {
                     Map<String, String> params = new HashMap<String, String>();
-                    params.put("User", "Furkan");
-                    params.put("Pass", "admin");
+                    params.put("Content-Type", "application/");
+
                     return params;
                 }
             };
 
             RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
             queue.add(request);
-           return null;
         }
     }
-}
+
 
