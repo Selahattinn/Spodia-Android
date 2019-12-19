@@ -129,7 +129,7 @@ public class Login extends Activity
         params.put("parola", et_password.getText().toString());
         JSONObject obj = new JSONObject(params);
 
-         final String url = "https://192.168.3.52:8080";
+         final String url = "https://192.168.3.103:8080/login";
          JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url,obj,new Response.Listener<JSONObject>() {
 
              @Override
@@ -138,9 +138,9 @@ public class Login extends Activity
                      try {
                         if (response.keys().hasNext())
                         {
-                            if (response.getString("name").equals(et_username.getText().toString()))
+                            if (response.getInt("status")==1)
                             {
-                                Toast toast = Toast.makeText(getApplicationContext(), "Succesfull", Toast.LENGTH_SHORT);
+                                Toast toast = Toast.makeText(getApplicationContext(), response.getString("token"), Toast.LENGTH_SHORT);
                                 toast.show();
                                 Intent mainPage = new Intent(Login.this, MainPage.class);
                                 startActivity(mainPage);
