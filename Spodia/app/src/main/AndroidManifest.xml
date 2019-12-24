@@ -4,6 +4,13 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+
+
 
     <application
         android:allowBackup="true"
@@ -11,7 +18,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        >
         <activity android:name=".Register"></activity>
         <activity android:name=".ResetPassword" />
         <activity android:name=".MainPage" />
@@ -20,7 +28,13 @@
         <activity android:name=".TwitterLogin" />
         <activity android:name=".ForgetPassword" />
         <activity android:name=".FacebookLogin" />
+        <activity android:name="com.example.spodia.AuthenticatorActivity" />
         <activity android:name=".Login" />
+
+        <activity android:name=".AccountGeneral" />
+        <activity android:name=".ServerAuthenticate" />
+        <activity android:name=".UdinicAuthenticator" />
+        <activity android:name=".UdinicAuthenticatorService" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,6 +46,22 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
+        <!-- Authenticator related activities and service needs to be declared here in order for the app to recognize them-->
+
+
+
+        <service android:name="com.example.spodia.UdinicAuthenticatorService">
+
+        <intent-filter>
+
+        <action android:name="android.accounts.AccountAuthenticator"/>
+
+    </intent-filter>
+
+        <meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@xml/authenticator"/>
+
+    </service>
     </application>
 
 </manifest>

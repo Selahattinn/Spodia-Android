@@ -9,21 +9,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.app.Activity;
-import android.os.AsyncTask;
-import android.widget.Toast;
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.HashMap;
-import java.util.Map;
-
 
 
 public class Login extends Activity
@@ -41,8 +26,9 @@ public class Login extends Activity
     private ImageView iv_GmailLogin;
     private Button buttonSignUp;
 
+
     @Override
-    protected void onCreate(Bundle savedInstanceState)
+    protected void onCreate(final Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
@@ -64,8 +50,11 @@ public class Login extends Activity
             @Override
             public void onClick(View view)
             {
+                Intent asd = new Intent(Login.this, AuthenticatorActivity.class);
+                asd.putExtra("name",et_username.getText().toString());
+                asd.putExtra("pass",et_password.getText().toString());
+                startActivity(asd);
 
-                request();
             }
         });
 
@@ -86,6 +75,7 @@ public class Login extends Activity
             {
                 Intent facebookLogin = new Intent(Login.this, FacebookLogin.class);
                 startActivity(facebookLogin);
+                finish();
             }
         });
 
@@ -121,80 +111,7 @@ public class Login extends Activity
     }
 
 
-    private void request()
-    {
-        Map<String, String> params = new HashMap<String, String>();
-        params.put("Content-Type", "application/");
-        params.put("name", et_username.getText().toString());
-        params.put("parola", et_password.getText().toString());
-        JSONObject obj = new JSONObject(params);
 
-         final String url = "https://192.168.3.103:8080/login";
-         JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url,obj,new Response.Listener<JSONObject>() {
-
-             @Override
-
-                public void onResponse(JSONObject response) {
-                     try {
-                        if (response.keys().hasNext())
-                        {
-                            if (response.getInt("status")==1)
-                            {
-                                Toast toast = Toast.makeText(getApplicationContext(), response.getString("token"), Toast.LENGTH_SHORT);
-                                toast.show();
-                                Intent mainPage = new Intent(Login.this, MainPage.class);
-                                startActivity(mainPage);
-                            }
-                            else
-                            {
-                                Toast toast = Toast.makeText(getApplicationContext(), "Invalid login.", Toast.LENGTH_SHORT);
-                                toast.show();
-                            }
-                        }
-                        else
-                        {
-                            Toast toast = Toast.makeText(getApplicationContext(), "Connection poroblem.", Toast.LENGTH_SHORT);
-                            toast.show();
-                        }
-                    } catch ( JSONException e) {
-                        e.printStackTrace();
-                    }
-
-
-                }
-            }, new Response.ErrorListener()
-            {
-                @Override
-                public void onErrorResponse(VolleyError error)
-                {
-
-                }
-
-            })
-            {
-                @Override
-                public Map<String,String> getHeaders() throws AuthFailureError
-                {
-
-                    Map<String, String> params = new HashMap<String, String>();
-                    params.put("Content-Type", "application/");
-
-                    return params;
-                }
-
-                @Override
-                protected Map<String, String> getParams()
-                {
-                    Map<String, String> params = new HashMap<String, String>();
-                    params.put("Content-Type", "application/");
-
-                    return params;
-                }
-            };
-
-            RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
-            queue.add(request);
-        }
     }
 
 
