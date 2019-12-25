@@ -13,10 +13,11 @@ import android.app.Activity;
 
 public class Login extends Activity
 {
+
     /**
      * et = EditText - cb = CheckBox - tv = TextView - iv = ImageView
      */
-    private EditText et_username;
+    /**private EditText et_username;
     private EditText et_password;
     private Button buttonLogin;
     private CheckBox cb_rememberMe;
@@ -50,10 +51,7 @@ public class Login extends Activity
             @Override
             public void onClick(View view)
             {
-                Intent asd = new Intent(Login.this, AuthenticatorActivity.class);
-                asd.putExtra("name",et_username.getText().toString());
-                asd.putExtra("pass",et_password.getText().toString());
-                startActivity(asd);
+
 
             }
         });
@@ -110,7 +108,7 @@ public class Login extends Activity
         });
     }
 
-
+*/
 
     }
 
